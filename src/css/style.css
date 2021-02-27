@@ -1,11 +1,15 @@
 @charset "utf-8";
 
-
+/* common area */
 .inner {position:relative; max-width:1440px; height:100%; margin:0 auto;}
+.blind {display:block; width:100%; overflow:hidden; text-indent:-99999px;}
+.clearfix::after {content:''; display:block; width:100%; height:100%; clear:both;}
+section {position:relative; height:auto;}
+section .tit {position:absolute; top:100px; width:100%; text-align:center; font-size:5em; font-family: 'Amatic SC', cursive; text-shadow:5px 5px 10px rgba(0,0,0,.7); color:#333;}
 
 /* section 01 */
 #main-kv {position:relative; width:100%; min-height:1000px; overflow:hidden;}
-#main-kv h2 {z-index:10; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#fff; font-size:10em; font-family: 'Amatic SC', cursive; text-shadow:5px 5px 10px rgba(0,0,0,.7); text-transform:uppercase; transition:.5s;}
+#main-kv h2 {z-index:10; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#fff; font-size:10em;  text-transform:uppercase; transition:.5s;}
 #main-kv .tit.fade-in {visibility:visible; opacity:1;}
 #main-kv .tit.fade-out {visibility:hidden; opacity:0;}
 #main-kv .bg {width:100%; height:100%; object-fit:cover;}
@@ -17,10 +21,52 @@
 
 
 /* section 02 */
-#redesign {min-height:100vh; background-color:#ededed;}
+#skill .temp {display:flex; justify-content:center; align-items:center; min-height:100vh;}
+#skill ul {display:flex; width:1000px;}
+#skill ul .card {position:relative; width:30%; height:300px;}
+#skill ul .card:nth-child(2) {margin:0 50px;}
+#skill .temp .card .content {position:absolute; top:0; left:0; width:100%; height:100%; transition:.5s;}
+#skill .temp .card .content.content1 {z-index:1; display:flex; justify-content:center; align-items:center; background-color:#eff1f4; transform-origin:bottom;}
+#skill .temp .card .content.content2 {display:flex; justify-content:space-between; align-items:center; padding:20px; box-sizing:border-box; background-color:#d1d9e5; transform-origin:top; transform:translateY(100%) rotateX(90deg);}
+#skill .temp .card:hover .content.content1 {transform:translateY(-100%) rotateX(90deg);}
+#skill .temp .card:hover .content.content2 {transform:translateY(0) rotateX(0deg);}
+
+.card .content1 .card-wrap {width:100%; height:100%;}
+.card .content1 .card-wrap .img-box {width:100%; height:80%; padding:20px; box-sizing:border-box;}
+.card:first-child .content1 .card-wrap .img-box {padding:30px;}
+.card .content1 .card-wrap .img-box img {width:100%; height:100%; object-fit:contain;}
+.card .content1 .card-wrap .txt-box {width:100%; height:20%; text-align:center;}
+.card .content1 .card-wrap .txt-box h3 {font-size:1.5em; font-family: 'Amatic SC', cursive; font-weight:900;}
+.card .content2 dl {display:table; width:100%;}
+.card .content2 dl dt {display:inline-block; width:40%; height:20px; padding-left:10px; box-sizing:border-box;}
+.card .content2 dl dd {display:inline-block; position:relative; width:60%; height:20px;}
+.card .content2 dl dd .gage {display:block; position:absolute; top:0; left:0; width:100%; height:10px; margin-top:10px; border:1px solid #000; border-radius:5px; box-sizing:border-box; background-color:#fff; transition:ease-in-out;}
+.card .content2 dl dd .gage .zIdx {z-index:10; display:inline-block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); height:100%; color:#fff; font-size:4px; text-align:center;}
+.card .content2 dl dd .color-gage {position:absolute; top:12px; left:1px; width:0; height:8px; border-radius:5px; background-color:#0a6e0a; transition:.7s ease-in-out;}
+
+/* code card  */
+.card.code:hover .content2 dl dd:nth-child(2) .color-gage {width:90%;}
+.card.code:hover .content2 dl dd:nth-child(4) .color-gage {width:85%;}
+.card.code:hover .content2 dl dd:nth-child(6) .color-gage {width:60%;}
+
+/* graphic card */
+.card.skill:hover .content2 dl dd:nth-child(2) .color-gage {width:60%;}
+.card.skill:hover .content2 dl dd:nth-child(4) .color-gage {width:70%;}
+.card.skill:hover .content2 dl dd:nth-child(6) .color-gage {width:70%;}
+
+/* social card */
+.card.social:hover .content2 dl dd:nth-child(2) .color-gage {width:80%}
+.card.social:hover .content2 dl dd:nth-child(4) .color-gage {width:85%}
+.card.social:hover .content2 dl dd:nth-child(6) .color-gage {width:99%}
+
+
+
+
 
 /* section 03 */
 #resume {min-height:100vh; background-color:#ddd;}
 
 /* section 04 */
 #contact {min-height:100vh; background-color:#ededed;}
+
+/* clip-path: polygon(25% 0, 75% 0, 100% 35%, 50% 100%, 0 35%); */
